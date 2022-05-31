@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kood/stats</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="side-container">
+      <form class="side-search" id="searchForm" name="searchForm">
+        <div class="search-input-group">
+          <input
+            type="text"
+            name="username"
+            autocomplete="off"
+            required
+            id="username"
+          />
+          <label for="username">Search for user</label>
+        </div>
+        <button class="search-btn"></button>
+      </form>
+
+      <div class="side-user">
+        <div class="user-icon"></div>
+        <div class="user-content">
+          <p class="user-name">--/--</p>
+          <p class="user-xp">xp <span id="total-xp">--/--</span> kb</p>
+        </div>
+      </div>
+
+      <div class="side-level">
+        <p class="level-tag">Level</p>
+        <p class="level" id="level">0</p>
+      </div>
+      <div class="side-skills">
+        <h3 class="skills-title">Highest skills</h3>
+        <div class="skill">
+          <h4 class="skill-title" id="skill-1-title"></h4>
+          <span class="skill-label" id="skill-1-label"></span>
+          <svg
+            class="skill-bar"
+            id="skill-bar-1"
+            width="330"
+            height="3"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line class="stat-bar-background" x1="0" x2="313" y1="0" y2="0" />
+            <line class="stat-bar" x1="0" x2="0" y1="0" y2="0">
+              <animate
+                attributeName="x2"
+                from="0"
+                to="0"
+                begin="1s"
+                dur="2s"
+                fill="freeze"
+              />
+            </line>
+          </svg>
+        </div>
+        <div class="skill">
+          <h4 class="skill-title" id="skill-2-title"></h4>
+          <span class="skill-label" id="skill-2-label"></span>
+          <svg
+            class="skill-bar"
+            id="skill-bar-2"
+            width="330"
+            height="3"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line class="stat-bar-background" x1="0" x2="313" y1="0" y2="0" />
+            <line class="stat-bar" x1="0" x2="0" y1="0" y2="0">
+              <animate
+                attributeName="x2"
+                from="0"
+                to="0"
+                begin="1s"
+                dur="2s"
+                fill="freeze"
+              />
+            </line>
+          </svg>
+        </div>
+        <div class="skill">
+          <h4 class="skill-title" id="skill-3-title"></h4>
+          <span class="skill-label" id="skill-3-label"></span>
+          <svg
+            class="skill-bar"
+            id="skill-bar-3"
+            width="330"
+            height="3"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line class="stat-bar-background" x1="0" x2="313" y1="0" y2="0" />
+            <line class="stat-bar" x1="0" x2="0" y1="0" y2="0">
+              <animate
+                attributeName="x2"
+                from="0"
+                to="0"
+                begin="1s"
+                dur="2s"
+                fill="freeze"
+              />
+            </line>
+          </svg>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-container">
+      <div class="point-graph-container">
+        <h2 class="graph-title">POINTS EARNED BY PROJECT</h2>
+        <div class="graph-info" id="point-graph-info"></div>
+        <svg
+          class="graph"
+          id="point-graph"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        ></svg>
+        <svg 
+          class="loader"
+          version="1.1" 
+          id="loader-1" 
+          xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          x="0px" y="0px"
+          width="50px" 
+          height="50px" 
+          viewBox="0 0 50 50" 
+          style="enable-background:new 0 0 50 50;" 
+          xml:space="preserve">
+            <path fill="rgb(131, 206, 99)" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.8s"
+              repeatCount="indefinite"/>
+            </path>
+        </svg>
+      </div>
+
+      <div class="stats">
+        <div>
+          <h5>TOTAL PROJECT COUNT</h5>
+          <p id="point-stat-total" class="statistics">--/--</p>
+        </div>
+
+        <div>
+          <h5>MAX POINTS PER PROJECT</h5>
+          <p id="point-stat-max" class="statistics">--/--</p>
+          <p id="point-stat-max-title" class="statistics-info">--/--</p>
+        </div>
+
+        <div>
+          <h5>MIN POINTS PER PROJECT</h5>
+          <p id="point-stat-min" class="statistics">--/--</p>
+          <p id="point-stat-min-title" class="statistics-info">--/--</p>
+        </div>
+      </div>
+
+      <div class="level-graph-container">
+        <h2 class="graph-title">LEVEL OVER TIME</h2>
+        <svg
+          class="graph"
+          id="level-graph"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <text x="-50" y="14" class="level-graph-axis" transform="rotate(-90)">
+            LEVEL
+          </text>
+          <line x1="1" x2="1" y1="60" y2="320" class="level-graph-line"></line>
+          <line
+            id="level-graph-time-line"
+            x1="0"
+            x2="5"
+            y1="319"
+            y2="319"
+            class="level-graph-line"
+          ></line>
+          <text
+            id="level-graph-time-label"
+            x="5"
+            y="320"
+            class="level-graph-axis"
+          >
+            TIME
+          </text>
+          <g id="level-graph-data"></g>
+        </svg>
+        <svg 
+          class="loader"
+          version="1.1" 
+          id="loader-2" 
+          xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          x="0px" y="0px"
+          width="50px" 
+          height="50px" 
+          viewBox="0 0 50 50" 
+          style="enable-background:new 0 0 50 50;" 
+          xml:space="preserve">
+            <path fill="rgb(131, 206, 99)" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.8s"
+              repeatCount="indefinite"/>
+            </path>
+        </svg>
+      </div>
+
+      <div class="stats">
+        <div>
+          <h5>CURRENT LEVEL</h5>
+          <p id="level-stat-total" class="statistics">--/--</p>
+        </div>
+
+        <div>
+          <h5>FIRST LEVEL ACHIVED IN</h5>
+          <p id="level-stat-min" class="statistics">--/--</p>
+        </div>
+
+        <div>
+          <h5>CURRENT LEVEL ACHIVED IN</h5>
+          <p id="level-stat-max" class="statistics">--/--</p>
+        </div>
+      </div>
+
+      <div class="piscine-graph-container">
+        <h2 class="graph-title">
+          <span
+            class="piscine-choice active"
+            id="piscine-js"
+            onclick="changePiscineGraph('js')"
+            >JS</span
+          >
+          /
+          <span
+            class="piscine-choice"
+            id="piscine-go"
+            onclick="changePiscineGraph('go')"
+            >GO</span
+          >
+          PISCINE - ATTEMPTS PER EXERCISE
+        </h2>
+        <div class="graph-info" id="piscine-graph-info"></div>
+        <svg
+          class="graph"
+          id="piscine-graph"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        ></svg>
+        <svg 
+          class="loader"
+          version="1.1" 
+          id="loader-1" 
+          xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          x="0px" y="0px"
+          width="50px" 
+          height="50px" 
+          viewBox="0 0 50 50" 
+          style="enable-background:new 0 0 50 50;" 
+          xml:space="preserve">
+            <path fill="rgb(131, 206, 99)" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.8s"
+              repeatCount="indefinite"/>
+            </path>
+        </svg>
+      </div>
+
+      <div class="stats">
+        <div>
+          <h5>TOTAL ATTEMPTS</h5>
+          <p id="piscine-stat-total" class="statistics">--/--</p>
+        </div>
+
+        <div>
+          <h5>MAX ATTEMPTS PER EXERCISE</h5>
+          <p id="piscine-stat-max" class="statistics">--/--</p>
+          <p id="piscine-stat-max-title" class="statistics-info">--/--</p>
+        </div>
+
+        <div>
+          <h5>MIN ATTEMPTS PER EXERCISE</h5>
+          <p id="piscine-stat-min" class="statistics">--/--</p>
+          <p id="piscine-stat-min-title" class="statistics-info">--/--</p>
+        </div>
+      </div>
+    </main>
+
+    <div class="texture-overlay"></div>
+
+    <script src="./js/graphs/utils.js"></script>
+    <script src="./js/graphs/levelgraph.js"></script>
+    <script src="./js/graphs/pointgraph.js"></script>
+    <script src="./js/graphs/piscinegraph.js"></script>
+    <script src="./js/stats.js"></script>
+    <script src="./js/queries.js"></script>
+    <script src="./js/skills.js"></script>
+    <script src="./js/requests.js"></script>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
