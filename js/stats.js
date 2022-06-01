@@ -18,8 +18,7 @@ const displayXP = () =>{
 }
 /* ----------------------- display current user level ----------------------- */
 const displayLevel = () =>{
-    let level = document.querySelector("#level")
-    level.innerHTML = userData.level
+    increaseLevel(userData.level,0)
 }
 
 /* -------------------------------------------------------------------------- */
@@ -41,3 +40,15 @@ const clearLevel = () =>{
     level.innerHTML = temp
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   helper                                   */
+/* -------------------------------------------------------------------------- */
+
+const increaseLevel = (targetLevel, currentLevel=0) => {
+  if (currentLevel >=targetLevel)return
+  let levelElement = document.querySelector("#level")
+  currentLevel ++
+  levelElement.innerText = currentLevel
+  if (currentLevel ==targetLevel)return
+  setTimeout(increaseLevel,50,targetLevel, currentLevel) 
+}
