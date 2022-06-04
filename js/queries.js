@@ -16,7 +16,7 @@ const queries = {
         return JSON.stringify({
             query: `{
                 user(where: { login: { _eq: "${username}" } }){
-                    progresses (where:{isDone:{_eq:true}, path: {_regex: "div-01/(?!piscine-js.*/)"}},order_by:{createdAt:asc}){
+                    progresses (where:{isDone:{_eq:true}, path: {_regex: "div-01/(?!(piscine.*/)|(rust))"}},order_by:{createdAt:asc}){
                         objectId
                         createdAt
                     }
